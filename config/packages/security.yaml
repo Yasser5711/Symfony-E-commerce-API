@@ -1,0 +1,36 @@
+# config/packages/security.yaml
+security:
+  providers:
+    users:
+      entity:
+        class: App\Entity\User
+        property: email
+
+  password_hashers:
+    Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: "auto"
+
+  firewalls:
+    dev:
+      pattern: ^/(_(profiler|wdt)|css|images|js)/
+      security: false
+    # register:
+    #   pattern: ^/api/register
+    #   #stateless: true
+
+    main:
+      lazy: true
+      stateless: true
+      provider: users
+      custom_authenticators:
+        - App\Security\CustomAuthenticator
+
+  access_control:
+    #- { path: "api/register", roles: PUBLIC_ACCESS }
+    - { path: "api/users", roles: IS_AUTHENTICATED_FULLY }
+    #- { path: "api/get-user", roles: ROLE_USER }
+    # - { path: ^/api/products$, roles: ROLE_ADMIN, methods: [POST] }
+    # - {
+    #     path: ^/api/products,
+    #     roles: IS_AUTHENTICATED_ANONYMOUSLY,
+    #     methods: [GET],
+    #   }

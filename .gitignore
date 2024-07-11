@@ -1,0 +1,30 @@
+# Ignore vendor directory
+/vendor/
+
+# Ignore .env files
+.env
+.env.*
+!.env.example
+
+# Ignore cache and logs directories
+/var/cache/
+/var/log/
+
+# Ignore IDE-related files and directories
+/.idea/
+/.vscode/
+
+# Ignore composer lock file
+/composer.lock
+
+# Ignore PHPUnit cache and temporary files
+/.phpunit.result.cache
+/.phpunit.cache
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###

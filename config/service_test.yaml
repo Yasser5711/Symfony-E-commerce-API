@@ -1,0 +1,8 @@
+# config/services_test.yaml
+
+# Define default configuration for services
+_defaults:
+  public: true
+
+# Define services
+Symfony\Contracts\HttpClient\HttpClientInterface: ~
